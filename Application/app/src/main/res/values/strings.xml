@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Quiz_Assignment</string>
+    <string name = "question">Has the text changed?</string>
+</resources>
