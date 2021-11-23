@@ -23,18 +23,21 @@ public class StorageManager {
         }
         finally{
             try{
-                fileOutputStream.close();
+                if (fileOutputStream != null){
+                    fileOutputStream.close();
+                }
             }
             catch(IOException ex){
                 ex.printStackTrace();
             }
+
         }
     }
 
     public ArrayList<Integer> getAverage(Activity activity){
         FileInputStream fileInputStream = null;
         int read;
-        ArrayList<Integer> scores = new ArrayList<Integer>(1);
+        ArrayList<Integer> scores = new ArrayList<>(1);
 
         try{
             fileInputStream = activity.openFileInput(filename);
@@ -54,8 +57,7 @@ public class StorageManager {
     public void resetScoresInFile(Activity activity){
         FileOutputStream fileOutputStream = null;
         try{
-            //MODE_PRIVATE deletes the existing context
-            fileOutputStream = activity.openFileOutput(filename, Context.MODE_PRIVATE); //reset file = empty
+            fileOutputStream = activity.openFileOutput(filename, Context.MODE_PRIVATE);
             fileOutputStream.write("".getBytes());
         }
         catch (Exception ex){
@@ -63,7 +65,9 @@ public class StorageManager {
         }
         finally{
             try{
-                fileOutputStream.close();
+                if (fileOutputStream != null){
+                    fileOutputStream.close();
+                }
             }
             catch(IOException ex){
                 ex.printStackTrace();

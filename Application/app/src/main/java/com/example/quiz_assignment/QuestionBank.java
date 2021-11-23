@@ -10,11 +10,11 @@ public class QuestionBank implements Parcelable {
     private ArrayList<Question> listOfQuestions = new ArrayList<>();
 
     public QuestionBank() {
-        listOfQuestions.add(new Question("The capital city of Ontario is Ottawa", false));
-        listOfQuestions.add(new Question("The capital city of Alberta is Edmonton", true));
-        listOfQuestions.add(new Question("Quebec City is the capital city of Quebec", true));
-        listOfQuestions.add(new Question("Whitehorse is the capital city of the Northwest Territories", false));
-        listOfQuestions.add(new Question("The capital city of British Columbia is Victoria Island", false));
+        listOfQuestions.add(new Question(R.string.question1, false));
+        listOfQuestions.add(new Question(R.string.question2, true));
+        listOfQuestions.add(new Question(R.string.question3, true));
+        listOfQuestions.add(new Question(R.string.question4, false));
+        listOfQuestions.add(new Question(R.string.question5, false));
 
         shuffleQuestionBank();
     }

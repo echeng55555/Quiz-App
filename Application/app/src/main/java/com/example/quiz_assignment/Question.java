@@ -7,11 +7,11 @@ import android.os.Parcelable;
 import java.util.Random;
 
 public class Question implements Parcelable {
-    private final String text;
+    private final int text;
     private final boolean answer;
     private int colour;
 
-    public Question(String p_question, boolean p_answer) {
+    public Question(int p_question, boolean p_answer) {
         Random random = new Random();
 
         text = p_question;
@@ -25,7 +25,7 @@ public class Question implements Parcelable {
     }
 
     //returns the text (the question)
-    public String getText() {
+    public int getText() {
         return text;
     }
 
@@ -40,7 +40,7 @@ public class Question implements Parcelable {
     }
 
     protected Question(Parcel in) {
-        text = in.readString();
+        text = in.readInt();
         answer = in.readByte() != 0;
     }
 
@@ -63,7 +63,7 @@ public class Question implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(text);
+        parcel.writeInt(text);
         parcel.writeByte((byte) (answer ? 1 : 0));
     }
 }

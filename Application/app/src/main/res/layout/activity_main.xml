@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buttonClicked"
-            android:text="True" />
+            android:text="@string/trueOption" />
 
         <Button
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buttonClicked"
-            android:text="False" />
+            android:text="@string/falseOption" />
     </LinearLayout>
 
     <ProgressBar

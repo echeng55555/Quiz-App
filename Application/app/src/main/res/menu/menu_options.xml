@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/getTheAverage"
-        android:title="Get The Average"/>
+        android:title="@string/getTheAverage"/>
     <item
         android:id="@+id/selectTheNumberOfQuestion"
-        android:title="Select the number of Question"/>
+        android:title="@string/selectTheNumberOfQuestion"/>
     <item
         android:id="@+id/resetTheSavedResult"
-        android:title="Reset the saved Result"/>
+        android:title="@string/resetTheSavedResult"/>
 </menu>

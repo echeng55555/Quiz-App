@@ -34,14 +34,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState != null) {
+            newQuestionBank = savedInstanceState.getParcelable("currentQuestionBank");
+            noQuestions = savedInstanceState.getInt("currentQuestionCount");
+            noCorrect = savedInstanceState.getInt("currentQuestionsCorrect");
+            noAttempts = savedInstanceState.getInt("currentAttempts");
+        } else {
+            //GOAL: set initial fragment question
+            //generate new question bank
+            newQuestionBank = new QuestionBank();
+        }
+
         builder = new AlertDialog.Builder(this);
         fm = getSupportFragmentManager();
         storageManager = ((myApp) getApplication()).getStorageManager();
         bar = findViewById(R.id.progressBar);
 
-        //GOAL: set initial fragment question
-        //generate new question bank
-        newQuestionBank = new QuestionBank();
+        //set total to total number of questions in QuestionBank
         total = newQuestionBank.getNumberOfQuestions();
 
         //pass a Question to fragment to set the initial TextView
@@ -72,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 //create dialog
                 builder.create();
                 builder.setTitle("");
-                builder.setMessage("Your correct answers are " + totalCorrect + " out of " + totalAttempts + " attempts");
+                builder.setMessage(getString(R.string.getTheAverage1) + " " + totalCorrect + " " + getString(R.string.getTheAverage2) + " " + totalAttempts + " " + getString(R.string.getTheAverage3));
                 builder.setNegativeButton("OK", null);
                 builder.setPositiveButton("", null);
                 builder.setCancelable(false);
@@ -113,16 +122,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void showResult() {
         builder.create();
-        builder.setTitle("Result");
-        builder.setMessage("Your Score is: " + noCorrect + " out of " + total);
-        builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.resultTitle);
+        builder.setMessage(getString(R.string.resultDialog1) + " " + noCorrect + " " + getString(R.string.resultDialog2) + " " + total);
+        builder.setNegativeButton(R.string.ignore, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 resetQuiz(); //reset for next attempt
             }
         });
 
-        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 storageManager.saveScoreToFile(MainActivity.this, noCorrect);
@@ -142,11 +151,11 @@ public class MainActivity extends AppCompatActivity {
         //display appropriate Toast message
         boolean select = Boolean.parseBoolean(selectedAnswer.getText().toString());
         if (newQuestionBank.getQuestionAtIndex(noQuestions++).getAnswer() == select) {
-            Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.correct, Toast.LENGTH_SHORT).show();
             noCorrect++;
 
         } else {
-            Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.incorrect, Toast.LENGTH_SHORT).show();
         }
 
         bar.incrementProgressBy((int) (((double) 1 / (double) total) * 100));
@@ -171,5 +180,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("currentQuestionBank", newQuestionBank);
+        outState.putInt("currentQuestionCount", noQuestions);
+        outState.putInt("currentQuestionsCorrect", noCorrect);
+        outState.putInt("currentAttempts", noAttempts);
     }
 }

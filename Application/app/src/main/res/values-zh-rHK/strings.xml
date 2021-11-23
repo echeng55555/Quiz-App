@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">測驗_作業</string>
+    <string name="question1">安大略省的首府是渥太華</string>
+    <string name="question2">艾伯塔省的首府是埃德蒙頓</string>
+    <string name="question3">魁北克市是魁北克省的首府</string>
+    <string name="question4">懷特霍斯是西北地區的首府</string>
+    <string name="question5">不列顛哥倫比亞省的首府是維多利亞島</string>
+    <string name="falseOption">錯誤的</string>
+    <string name="trueOption">真的</string>
+    <string name="getTheAverage">獲取平均值</string>
+    <string name="selectTheNumberOfQuestion">選擇問題的數量</string>
+    <string name="resetTheSavedResult">重置保存的結果</string>
+    <string name="correct">正確的</string>
+    <string name="incorrect">不正確</string>
+    <string name="getTheAverage1">您的正確答案是</string>
+    <string name="getTheAverage2">次嘗試中有</string>
+    <string name="getTheAverage3">次</string>
+    <string name="resultTitle">結果</string>
+    <string name="resultDialog1">您的分數是：</string>
+    <string name="resultDialog2">分滿分</string>
+    <string name="ignore">忽略</string>
+    <string name="save">保存</string>
+</resources>

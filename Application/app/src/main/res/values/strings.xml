@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">Quiz_Assignment</string>
-    <string name = "question">Has the text changed?</string>
+    <string name="question1">The capital city of Ontario is Ottawa</string>
+    <string name="question2">The capital city of Alberta is Edmonton</string>
+    <string name="question3">Quebec City is the capital city of Quebec</string>
+    <string name="question4">Whitehorse is the capital city of the Northwest Territories</string>
+    <string name="question5">The capital city of British Columbia is Victoria Island</string>
+    <string name="falseOption">False</string>
+    <string name="trueOption">True</string>
+    <string name="getTheAverage">Get The Average</string>
+    <string name="selectTheNumberOfQuestion">Select the number of Question</string>
+    <string name="resetTheSavedResult">Reset the saved Result</string>
+    <string name="correct">Correct</string>
+    <string name="incorrect">Incorrect</string>
+    <string name="getTheAverage1">Your correct answers are </string>
+    <string name="getTheAverage2"> out of </string>
+    <string name="getTheAverage3"> attempts</string>
+    <string name="resultTitle">Result</string>
+    <string name="resultDialog1">Your Score is: </string>
+    <string name="resultDialog2"> out of </string>
+    <string name="ignore">Ignore</string>
+    <string name="save">Save</string>
 </resources>
